@@ -13,8 +13,8 @@ START_LNG AS station_lng,
 --END_LAT,
 --END_LNG,
 --MEMBER_CSUAL,
-    FROM {{ source('demo', 'bike') }}
-    WHERE RIDE_ID != 'ride_id'
+    FROM {{ ref('stg_bike') }}
+    WHERE RIDE_ID != 'bike_id' and RIDE_ID != '"bike_id"'
 
 )
 select *
